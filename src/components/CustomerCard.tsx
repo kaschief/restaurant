@@ -1,5 +1,5 @@
-// import React from "react";
+import React from "react";
 
-// const CustomerCard = () => {};
+const CustomerCard = () => {};
 
-// export default CustomerCard;
+export default CustomerCard;

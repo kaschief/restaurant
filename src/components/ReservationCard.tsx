@@ -1,5 +1,13 @@
-// import React from "react";
+import React from "react";
 
-// export const ReservationCard = () => {};
+interface ReservationCardTypes {
+  name: string;
+}
 
-// export default ReservationCard;
+export const ReservationCard = ({
+  name,
+}: ReservationCardTypes): JSX.Element => {
+  return <div className="reservation-card-container">{name}</div>;
+};
+
+export default ReservationCard;
