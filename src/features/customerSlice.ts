@@ -10,6 +10,11 @@ interface Customer {
   meals: string[];
 }
 
+interface AddFoodToCustomerPayload {
+  meal: string;
+  id: string;
+}
+
 const initialState: CustomerState = {
   value: [],
 };
@@ -21,9 +26,19 @@ export const customerSlice = createSlice({
     addCustomer: (state, action: PayloadAction<Customer>) => {
       state.value.push(action.payload);
     },
+    addFoodToCustomer: (
+      state,
+      action: PayloadAction<AddFoodToCustomerPayload>
+    ) => {
+      state.value.forEach((customer) => {
+        if (customer.id === action.payload.id) {
+          customer.meals.push(action.payload.meal);
+        }
+      });
+    },
   },
 });
 
-export const { addCustomer } = customerSlice.actions;
+export const { addCustomer, addFoodToCustomer } = customerSlice.actions;
 
 export default customerSlice.reducer;
