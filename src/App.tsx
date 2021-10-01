@@ -6,7 +6,7 @@ import CustomerCard from "./components/CustomerCard";
 import ReservationCard from "./components/ReservationCard";
 import { addReservation } from "./features/reservationSlice";
 
-function App() {
+function App(): JSX.Element {
   const reservations = useSelector(
     (state: RootState) => state.reservations.value
   );
@@ -45,8 +45,9 @@ function App() {
           </div>
         </div>
         <div className="customer-food-container">
-          {customers.map((customer) => (
+          {customers.map((customer, index) => (
             <CustomerCard
+              key={index}
               id={customer.id}
               name={customer.name}
               meals={customer.meals}
